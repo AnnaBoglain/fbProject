@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/08958affb8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="sign-out">
+    <button class="sign-out-button hover_button" onclick="logout()">Выйти</button>
+</div>
+<h1>Моя библиотека.</h1>
+<div class="container">
+
+    <div class = "cont-todo">
+        <form id="form" class="todo-form">
+            <div class="book-form">
+                <label for="todos"></label>
+                <input type="text" id="todos" placeholder="Введите книгу" required>
+            </div>
+             <div class="book-form">
+                <label for="todos2"></label>
+                <input type="text" id="todos2" placeholder="Введите автора книги" required>
+            </div>
+            <input type="submit" value="Отправить">
+        </form>
+        <!-- <input type="sumbit" value="Отправить"> -->
+        <!-- <button id="add" onclick="sumbit" class="button button1 hover_button">Add</button> -->
+    </div>
+
+    <div id="todo-container">
+
+    </div>
+
+    <div class="buttons">
+        <button id="all" onclick="filterHandler('all')" class="button button1 hover_button">
+            Все</button>
+        <button id="open" onclick="filterHandler('open')" class="button button2 hover_button">
+            Новые</button>
+        <button id="finished" onclick="filterHandler('completed')" class="button button3 hover_button">
+            Прочитанные</button>
+    </div>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-auth-compat.js"></script>
+<script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyA7stepUYE2WaahKOykANLt27G-Sfg-fCI",
+    authDomain: "todos-a17a7.firebaseapp.com",
+    projectId: "todos-a17a7",
+    storageBucket: "todos-a17a7.appspot.com",
+    messagingSenderId: "311885918893",
+    appId: "1:311885918893:web:d2565d27254be8650d4c24",
+    measurementId: "G-58M8PH4JFZ"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+</script>
+
+<script src="js/users.js"></script>
+</body>
+</html>
